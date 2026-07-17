@@ -100,14 +100,14 @@ if(btnEl){document.querySelectorAll(".playing").forEach(function(e){e.classList.
 tryBaidu(text,btnEl)}
 function tryBaidu(text,btnEl){
 var a=new Audio("https://fanyi.baidu.com/gettts?lan=en&text="+encodeURIComponent(text)+"&spd=3&source=web");
-_ca=a;a.volume=1;var ft=setTimeout(function(){if(_ca===a){try{a.pause();a.currentTime=0}catch(e){};tryYoudao(text,btnEl)}},2000);
-a.onended=function(){clearTimeout(ft);_sp=false;if(btnEl)btnEl.classList.remove("playing")};
-a.onerror=function(){clearTimeout(ft);tryYoudao(text,btnEl)};var p=a.play();if(p&&p.catch)p.catch(function(){clearTimeout(ft);tryYoudao(text,btnEl)})}
+_ca=a;a.volume=1;
+a.onended=function(){_sp=false;if(btnEl)btnEl.classList.remove("playing")};
+a.onerror=function(){tryYoudao(text,btnEl)};var p=a.play();if(p&&p.catch)p.catch(function(){tryYoudao(text,btnEl)})}
 function tryYoudao(text,btnEl){
 var a=new Audio("https://dict.youdao.com/dictvoice?audio="+encodeURIComponent(text)+"&type=1");
-_ca=a;a.volume=1;var ft=setTimeout(function(){if(_ca===a){try{a.pause();a.currentTime=0}catch(e){};tryBrowser(text,btnEl)}},2000);
-a.onended=function(){clearTimeout(ft);_sp=false;if(btnEl)btnEl.classList.remove("playing")};
-a.onerror=function(){clearTimeout(ft);tryBrowser(text,btnEl)};var p=a.play();if(p&&p.catch)p.catch(function(){clearTimeout(ft);tryBrowser(text,btnEl)})}
+_ca=a;a.volume=1;
+a.onended=function(){_sp=false;if(btnEl)btnEl.classList.remove("playing")};
+a.onerror=function(){tryBrowser(text,btnEl)};var p=a.play();if(p&&p.catch)p.catch(function(){tryBrowser(text,btnEl)})}
 function tryBrowser(text,btnEl){
 try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=0.85;
 u.onend=function(){_sp=false;if(btnEl)btnEl.classList.remove("playing")};
