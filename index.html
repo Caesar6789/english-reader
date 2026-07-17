@@ -173,8 +173,8 @@ function rs(s){
 if(!s.en)return"";
 if(/^\d+:\d+/.test(s.en))return'<div class="text-subtitle">'+esc(s.en)+(s.zh?" · "+esc(s.zh):"")+'</div>';
 return'<div class="text-sentence" data-sen="'+esc(s.en)+
-'"><div class="sen-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>'+
-'<div class="sen-en">'+esc(s.en)+'</div>'+(s.zh?'<div class="sen-zh">'+esc(s.zh)+'</div>':"")+'</div>'}
+'"><div class="sen-en">'+esc(s.en)+'</div>'+(s.zh?'<div class="sen-zh">'+esc(s.zh)+'</div>':"")+
+'<div class="sen-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>'}
 
 function init(){
 document.addEventListener("click",function(e){
