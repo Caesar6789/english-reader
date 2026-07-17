@@ -191,7 +191,7 @@ document.getElementById("text-tabs").addEventListener("click",function(e){
 var t=e.target.closest(".tab");if(!t)return;rt(parseInt(t.dataset.idx))});
 document.getElementById("text-content").addEventListener("click",function(e){
 var s=e.target.closest(".text-sentence");if(!s)return;
-spkSentence(s.dataset.sen,s.querySelector(".sen-play"))});
+speakText(s.dataset.sen,s.querySelector(".sen-play"))});
 }
 
 if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",init)}else{init()}
