@@ -114,8 +114,9 @@ u.onend=function(){_sp=false;if(btnEl)btnEl.classList.remove("playing")};
 u.onerror=function(){tryBaidu(text,btnEl)};
 speechSynthesis.speak(u)
 }catch(e){tryBaidu(text,btnEl)}}
-function spkSentence(w,b){if(!w||_sp)return;_sp=true;sa();if(b){document.querySelectorAll(".playing").forEach(function(e){e.classList.remove("playing")});b.classList.add("playing")}
-try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(w);u.lang="en-US";u.rate=0.7;u.onend=function(){_sp=false;if(b)b.classList.remove("playing")};speechSynthesis.speak(u)}catch(e){_sp=false;if(b)b.classList.remove("playing")}}
+function spkSentence(w,b){if(!w||_sp)return;_sp=true;ua();sa();if(b){document.querySelectorAll(".playing").forEach(function(e){e.classList.remove("playing")});b.classList.add("playing")}
+try{if(!window._ssReady){speechSynthesis.cancel();var w2=new SpeechSynthesisUtterance(" ");w2.volume=0;speechSynthesis.speak(w2);window._ssReady=true}
+speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(w);u.lang="en-US";u.rate=0.7;u.onend=function(){_sp=false;if(b)b.classList.remove("playing")};speechSynthesis.speak(u)}catch(e){_sp=false;if(b)b.classList.remove("playing")}}
 
 function esc(s){return s.split("'").join("&#39;")}
 
