@@ -97,7 +97,7 @@ function sa(){if(_ca){try{_ca.pause();_ca.currentTime=0}catch(e){};_ca=null}try{
 function speakText(text,btnEl){
 if(!text||_sp)return;_sp=true;ua();sa();
 if(btnEl){document.querySelectorAll(".playing").forEach(function(e){e.classList.remove("playing")});btnEl.classList.add("playing")}
-tryBrowser(text,btnEl)}
+tryBaidu(text,btnEl)}
 function tryBaidu(text,btnEl){
 var a=new Audio("https://fanyi.baidu.com/gettts?lan=en&text="+encodeURIComponent(text)+"&spd=3&source=web");
 _ca=a;a.volume=1;var ft=setTimeout(function(){if(_ca===a){try{a.pause();a.currentTime=0}catch(e){};tryYoudao(text,btnEl)}},2000);
