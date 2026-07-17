@@ -94,11 +94,8 @@ document.getElementById("toast").classList.add("hidden")}
 
 function sa(){if(_ca){try{_ca.pause();_ca.currentTime=0}catch(e){};_ca=null}try{speechSynthesis.cancel()}catch(e){}}
 
-function speakText(text,btnEl){
-if(!text||_sp)return;_sp=true;ua();sa();
-if(btnEl){document.querySelectorAll(".playing").forEach(function(e){e.classList.remove("playing")});btnEl.classList.add("playing")}
-tryBaidu(text,btnEl)}
-function tryBaidu(text,btnEl){
+function speakText(text,btnEl){if(!text||_sp)return;_sp=true;ua();sa();if(btnEl){document.querySelectorAll(".playing").forEach(function(e){e.classList.remove("playing")});btnEl.classList.add("playing")}
+try{if(!window._ttsReady){var w2=new SpeechSynthesisUtterance(" ");w2.volume=0;speechSynthesis.speak(w2);window._ttsReady=true;setTimeout(function(){speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=0.85;u.onend=function(){_sp=false;if(btnEl)btnEl.classList.remove("playing")};u.onerror=function(){tryBaidu(text,btnEl)};speechSynthesis.speak(u)},150)}else{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=0.85;u.onend=function(){_sp=false;if(btnEl)btnEl.classList.remove("playing")};u.onerror=function(){tryBaidu(text,btnEl)};speechSynthesis.speak(u)}}catch(e){tryBaidu(text,btnEl)}}function tryBaidu(text,btnEl){
 var a=new Audio("https://fanyi.baidu.com/gettts?lan=en&text="+encodeURIComponent(text)+"&spd=3&source=web");
 _ca=a;a.volume=1;
 a.onended=function(){_sp=false;if(btnEl)btnEl.classList.remove("playing")};
@@ -115,10 +112,7 @@ u.onerror=function(){tryBaidu(text,btnEl)};
 speechSynthesis.speak(u)
 }catch(e){tryBaidu(text,btnEl)}}
 function spkSentence(w,b){if(!w||_sp)return;_sp=true;ua();sa();if(b){document.querySelectorAll(".playing").forEach(function(e){e.classList.remove("playing")});b.classList.add("playing")}
-try{if(!window._ssReady){speechSynthesis.cancel();var w2=new SpeechSynthesisUtterance(" ");w2.volume=0;speechSynthesis.speak(w2);window._ssReady=true}
-speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(w);u.lang="en-US";u.rate=0.7;u.onend=function(){_sp=false;if(b)b.classList.remove("playing")};speechSynthesis.speak(u)}catch(e){_sp=false;if(b)b.classList.remove("playing")}}
-
-function esc(s){return s.split("'").join("&#39;")}
+try{if(!window._ttsReady){var w2=new SpeechSynthesisUtterance(" ");w2.volume=0;speechSynthesis.speak(w2);window._ttsReady=true;setTimeout(function(){speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(w);u.lang="en-US";u.rate=0.7;u.onend=function(){_sp=false;if(b)b.classList.remove("playing")};speechSynthesis.speak(u)},150)}else{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(w);u.lang="en-US";u.rate=0.7;u.onend=function(){_sp=false;if(b)b.classList.remove("playing")};speechSynthesis.speak(u)}}catch(e){_sp=false;if(b)b.classList.remove("playing")}}function esc(s){return s.split("'").join("&#39;")}
 
 function showPage(n){
 document.querySelectorAll(".page").forEach(function(p){p.style.display="none"});
