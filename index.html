@@ -43,7 +43,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 .text-sentence:active{transform:scale(0.98);background:#222240}
 .text-sentence .sen-en{font-size:15px;color:#e8e8ed;line-height:1.6;margin-bottom:4px;padding-right:30px}
 .text-sentence .sen-zh{font-size:13px;color:#666;line-height:1.5}
-.text-sentence .sen-play{float:right;width:24px;height:24px;border-radius:50%;background:#61dafb22;border:1px solid #61dafb44;display:flex;align-items:center;justify-content:center;margin-top:-30px}
+.text-sentence{display:flex;flex-wrap:wrap;align-items:center}.text-sentence .sen-en{flex:1;min-width:0}.text-sentence .sen-zh{flex-basis:100%}.text-sentence .sen-play{width:24px;height:24px;border-radius:50%;background:#61dafb22;border:1px solid #61dafb44;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-left:8px}
 .text-sentence .sen-play svg{width:11px;height:11px;fill:#61dafb}
 .text-sentence .sen-play.playing{background:#61dafb;animation:pulse .35s}
 .text-sentence .sen-play.playing svg{fill:#1a1a2e}
